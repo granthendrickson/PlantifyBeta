@@ -4,7 +4,7 @@ import Home from './pages/home'
 import Login from './pages/login'
 import Register from './pages/register'
 import PlantBase from './pages/plantbase'
-import { Route, Routes} from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 //fonts
 import "./fonts/Kabel-Black.ttf";

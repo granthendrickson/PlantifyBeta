@@ -42,17 +42,21 @@
   align-items: center;
   justify-content: center;
   width: 50%;
+  height: 40px;
   background: #D1C3A7;
   padding: 8px 15px;
   border-radius: 15px;
 }
 
 .search-box input {
-  height: 100%;
-  width: 100%;
-  outline: none;
-  border: none;
-  background: #D1C3A7;
+  height: 100% !important;
+  width: 100% !important;
+  outline: none !important;
+  border: none !important;
+  background: #D1C3A7 !important;
+  padding: none !important;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
 }
 
 .register-button-box {
@@ -70,6 +74,120 @@
   width: 80%;
   height: 80%;
   transform: scaleX(-1) rotate(-30deg);
+}
+
+.login-page {
+  text-align: center;
+  height: 200vh;
+  background-image: url("./img/Monstera.png");
+  background-color: #FFF7E9;
+  background-repeat: no-repeat;
+}
+
+.register-page {
+  text-align: center;
+  height: 300vh;
+  background-image: url("./img/Monstera.png");
+  background-color: #FFF7E9;
+  background-repeat: no-repeat;
+}
+
+.login-container {
+  width: 380px;
+  margin: 100px auto;
+  position: relative;
+  background-color: white;
+  padding: 30px;
+  border-radius: 30px;
+  text-align: center;
+  box-shadow: 5px 5px 10px grey;
+}
+
+.register-container {
+  width: 900px;
+  margin: 100px auto;
+  position: relative;
+  background-color: white;
+  padding: 30px;
+  border-radius: 30px;
+  text-align: center;
+  box-shadow: 5px 5px 10px grey;
+}
+
+.container-half {
+  width: 50%;
+  float: left;
+}
+
+.input-group {
+  position: relative;
+  margin: auto;
+  width: 80%;
+}
+
+h2 {
+  font-size: 1rem;
+  margin: 10px;
+}
+
+hr {
+  margin: 20px auto;
+  width: 85%;
+}
+
+label {
+  color: black;
+  display: block;
+  margin-top: 1em;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: left;
+}
+
+input[type = text] {
+  border: 1px solid gray;
+  width: 100%;
+  padding: 1em;
+  box-sizing: border-box;
+  border-radius: 1em;
+  margin-top: .5em;
+  margin-bottom: 1.2em;
+}
+
+input[type = password] {
+  border: 1px solid gray;
+  width: 100%;
+  padding: 1em;
+  box-sizing: border-box;
+  border-radius: 1em;
+  margin-top: .5em;
+  margin-bottom: 1.2em;
+}
+
+input[type = button] {
+  background: #385250;
+  border: none;
+  width: 70%;
+  color: white;
+  font-family: bold;
+  font-weight: bold;
+  margin-top: 1.2em;
+  margin-bottom: 1.2em;
+  padding: 1em 0;
+  border-radius: 50px;
+  font-size: 1.3em;
+  cursor: pointer;
+}
+
+.login-register-swap {
+  text-decoration: none;
+  color: black;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+#register-button {
+  width: 30%;
 }
 
 main {
