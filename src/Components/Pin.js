@@ -1,14 +1,15 @@
 import React from 'react'
+import { Link } from "react-router-dom"
 
-import plant1 from "../img/plant1.jpeg" 
-
-function Pin({ pinSize }) {
+function Pin({ pinSize, img, link }) {
   return <div className={`pin ${pinSize}`}>
-    <img 
-        classname="main-pic" 
-        src={ plant1 }
-        alt="" 
-    />
+    <Link to={ link }>
+      <img 
+          className="main-pic" 
+          src={ img }
+          alt="" 
+      />
+    </Link>
   </div>;
 }
 

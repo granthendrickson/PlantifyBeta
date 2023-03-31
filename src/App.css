@@ -154,6 +154,17 @@ input[type = text] {
   margin-bottom: 1.2em;
 }
 
+textarea[type = text] {
+  border: 1px solid gray;
+  width: 100%;
+  padding: 1em;
+  box-sizing: border-box;
+  border-radius: 1em;
+  margin-top: .5em;
+  margin-bottom: 1.2em;
+  resize: none;
+}
+
 input[type = password] {
   border: 1px solid gray;
   width: 100%;
@@ -195,6 +206,11 @@ input[type = button] {
   color: #385250;
 }
 
+#back-icon {
+  background-color: transparent;
+  color: #D1C3A7;
+}
+
 .plantbase {
   text-align: left;
 }
@@ -226,9 +242,10 @@ input[type = button] {
   border: none;
   font-size: 2em;
   justify-content: center;
+  cursor: pointer;
 }
 
-.plant-container {
+.plantbase-container {
   display: grid;
   height: auto;
   padding-top: 35px;
@@ -236,6 +253,171 @@ input[type = button] {
   grid-template-columns: repeat(auto-fill, 300px);
   grid-auto-rows: 10px;
   justify-content: center;
+}
+
+.add-plant-page {
+  text-align: left;
+  color: #385250;
+}
+
+.add-plant-container {
+  width: 1000px;
+  height: 700px;
+  margin: 0px auto;
+  margin-top: -60px;
+  position: relative;
+  background-color: #FFF7E9;
+  padding: 30px;
+  border-radius: 30px;
+  text-align: center;
+  box-shadow: 5px 5px 10px grey;
+}
+
+.upload-image-container {
+  width: 50%;
+  height: 90%;
+  float: left;
+}
+
+.upload-text-container {
+  width: 50%;
+  height: 90%;
+  float: left;
+  text-align: left;
+  padding: 30px;
+}
+
+.image-drop-box {
+  background-color: #E4D9C4;
+  margin: 0px auto;
+  position: relative;
+  width: 90%;
+  height: auto;
+  border-radius: 16px;
+  padding: 10px 0px;
+}
+
+.dotted-box {
+  margin: auto;
+  width: 95%;
+  height: 556px;
+  outline: 3px dashed #B0A58F;
+  border-radius: 16px;
+}
+
+#upload-icon {
+  height: 40px;
+  width: 40px;
+  margin-top: 58%;
+  border-radius: 30px;
+  color: #E4D9C4;
+}
+
+#upload-text {
+  font-family: 'Josefin Sans';
+}
+
+#plant-name {
+  margin-top: 50px;
+  padding-left: 0px;
+  height: 30px;
+  width: 400px;
+  background-color: #FFF7E9;
+  border-radius: 0px;
+  border-top: transparent;
+  border-left: transparent;
+  border-right: transparent;
+  outline: none;
+  font-family: bold;
+  font-size: 2rem;
+}
+
+#plant-name::placeholder {
+  color: #385250;
+}
+
+#plant-species {
+  padding-left: 0px;
+  height: 30px;
+  width: 400px;
+  background-color: #FFF7E9;
+  border-radius: 0px;
+  border-top: transparent;
+  border-left: transparent;
+  border-right: transparent;
+  outline: none;
+  font-family: 'Josefin Sans';
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+#plant-species::placeholder {
+  color: #385250;
+}
+
+#plant-description {
+  border: none;
+  height: 290px;
+  box-shadow: 5px 5px 10px grey;
+  font-family: 'Josefin Sans';
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+#plant-description::placeholder {
+  color: #385250;
+}
+
+#save-button {
+  width: 25%;
+}
+
+.plant-container {
+  width: 1000px;
+  height: 700px;
+  margin: 0px auto;
+  margin-top: -60px;
+  position: relative;
+  background-color: #FFF7E9;
+  border-radius: 30px;
+  text-align: center;
+  box-shadow: 5px 5px 10px grey;
+}
+
+.plant-image-container {
+  width: 50%;
+  height: 100%;
+  float: left;
+  border-radius: 30px 0px 0px 30px;
+}
+
+.plant-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 30px 0px 0px 30px;
+}
+
+.plant-bio-container {
+  width: 50%;
+  height: 100%;
+  float: left;
+  border-radius: 0px 30px 30px 0px;
+  padding: 20px;
+  text-align: left;
+}
+
+.single-plant-header {
+  margin-top: 60px;
+  margin-bottom: 20px;
+  color: #385250;
+  font-family: bold;
+}
+
+#single-plant-description {
+  color: #385250;
+  font-family: 'Josefin Sans';
+  font-size: 1.2rem;
 }
 
 .pin {
