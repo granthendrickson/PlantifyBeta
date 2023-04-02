@@ -20,12 +20,14 @@ export const registerUser = functions.https.onRequest(async (request, response) 
     await admin.firestore().collection('users').doc(userRecord.uid).set({
       firstName,
       lastName,
+      username,
+      userId: userRecord.uid
     })
 
     response.json({message: 'User registered successfully', userId: userRecord.uid})
   }
   catch(error){
-    response.status(500).json({message: "Unable to register user", errors: error })
+    response.status(500).json({message: "Unable to register user", error })
   }
   
 });
@@ -38,9 +40,9 @@ export const registerUser = functions.https.onRequest(async (request, response) 
 
 // BASIC CRUD (Create - Read - Update - Delete)
 // Create
-export const add_plant = functions.https.onRequest((request, response) => {
+// export const add_plant = functions.https.onRequest((request, response) => {
     
-});
+// });
 
 // // READ
 // export const search_users_or_plants = functions.https.onRequest((request, response) => {
