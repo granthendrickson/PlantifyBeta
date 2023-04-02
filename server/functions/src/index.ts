@@ -3,11 +3,11 @@ import * as admin from 'firebase-admin'
 
 admin.initializeApp()
 const db = admin.firestore()
-const bucket = admin.storage().bucket("gs://plantify-d36ed.appspot.com")
+//const bucket = admin.storage().bucket("gs://plantify-d36ed.appspot.com")
 
 // // Start writing functions
 // // https://firebase.google.com/docs/functions/typescript
-//
+
 
 
 // STATUS: Working Properly
@@ -46,18 +46,18 @@ export const registerUser = functions.https.onRequest(async (request, response) 
 //---------------------------------------------
 
 // STATUS: NOT FUNCTIONAL, NEEDS WORK
-export const add_plant = functions.https.onRequest(async (request, response) => {
+// export const add_plant = functions.https.onRequest(async (request, response) => {
 
-  const {plantname, plantphoto, species, description, userId} = request.body
+//   const {plantname, plantphoto, species, description, userId} = request.body
 
-  try {
-    const plant_metadata = {plantname,plantphoto, species, description, userId}
-    await db.collection('users').doc(userId).collection('plants').add(plant_metadata)
-  }
-  catch (error) {
-    response.status(500).json({message : "Could not add plant", error})
-  }
-});
+//   try {
+//     const plant_metadata = {plantname,plantphoto, species, description, userId}
+//     await db.collection('users').doc(userId).collection('plants').add(plant_metadata)
+//   }
+//   catch (error) {
+//     response.status(500).json({message : "Could not add plant", error})
+//   }
+// });
 
 //---------------------------------------------
 //---------------READ FUNCTIONS----------------
@@ -76,8 +76,8 @@ export const search_users_or_plants = functions.https.onRequest(async (request, 
   try {
 
     const searchResult = await Promise.all([
-      db.collection('users').where('username', '==', query).get(),
-      db.collection('plants').where('species', '==', query).get(),
+      db.collection('users').orderBy('username').startAt(query).endAt(query + '\uf8ff').get(),
+      db.collection('plants').orderBy('species').startAt(query).endAt(query + '\uf8ff').get(),
     ])
 
     const usersQuery = searchResult[0].docs.map((doc) => doc.data())
@@ -108,26 +108,26 @@ export const search_users_or_plants = functions.https.onRequest(async (request, 
 
 // });
 
-//---------------------------------------------
+//---------------------------------------------s
 //-------------DELETE FUNCTIONS----------------
 //---------------------------------------------
 
 // STATUS: HAS WORK, NEEDS MORE WORK
-export const del_plant = functions.https.onRequest(async (request, response) => {
+// export const del_plant = functions.https.onRequest(async (request, response) => {
   
-  const {plantId} = request.body
+//   const {plantId} = request.body
 
-  try {
+//   try {
 
-    const plantRef = db.collection('plants').doc(plantId)
+//     const plantRef = db.collection('plants').doc(plantId)
     
-    
-    await plantRef.delete()
-    await bucket.deleteFiles()
 
-    response.json({message: "Successfully deleted"})
-  }
-  catch(error) {
-    response.json({message: "Could not delete", error})
-  }
-});
+//     await plantRef.delete()
+//     await bucket.deleteFiles()
+
+//     response.json({message: "Successfully deleted"})
+//   }
+//   catch(error) {
+//     response.json({message: "Could not delete", error})
+//   }
+// });
