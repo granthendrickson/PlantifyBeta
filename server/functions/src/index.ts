@@ -1,7 +1,11 @@
 import * as functions from "firebase-functions"
 import * as admin from 'firebase-admin'
 
+
+
+
 admin.initializeApp()
+const db = admin.firestore()
 
 // // Start writing functions
 // // https://firebase.google.com/docs/functions/typescript
@@ -33,9 +37,23 @@ export const registerUser = functions.https.onRequest(async (request, response) 
 });
 
 
-
-// export const sign_in = functions.https.onRequest((request, response) => {
+// export const sign_in = functions.https.onRequest(async (request, response) => {
     
+//   const {emailOrUsername, password} = request.body
+
+//   try {
+
+//     //const signInMethod = emailOrUsername.includes('@') ? 'email' : 'username'
+    
+//     let test = auth.signInWithEmailAndPassword(currentAuth,emailOrUsername, password)
+    
+//     response.json({test})
+      
+//   }
+//   catch(error){
+//     response.status(500).json({message: "Unable to register user", error })
+//   }
+
 // });
 
 // BASIC CRUD (Create - Read - Update - Delete)
