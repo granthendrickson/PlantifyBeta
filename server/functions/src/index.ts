@@ -1,15 +1,16 @@
 import * as functions from "firebase-functions"
 import * as admin from 'firebase-admin'
 
-
 admin.initializeApp()
 const db = admin.firestore()
-const storage = admin.storage().bucket()
-
+const bucket = admin.storage().bucket()
 
 // // Start writing functions
 // // https://firebase.google.com/docs/functions/typescript
 //
+
+
+// STATUS: Working Properly
 export const registerUser = functions.https.onRequest(async (request, response) => {
   
   const {firstName, lastName, email, username, password} = request.body
@@ -36,9 +37,15 @@ export const registerUser = functions.https.onRequest(async (request, response) 
   
 });
 
+//===============================================
+// BASIC CRUD(Create - Read - Update - Delete)===
+//===============================================
 
-// BASIC CRUD (Create - Read - Update - Delete)
-// Create
+//---------------------------------------------
+// ------------CREATE FUNCTIONS----------------
+//---------------------------------------------
+
+// STATUS: NOT FUNCTIONAL, NEEDS WORK
 export const add_plant = functions.https.onRequest(async (request, response) => {
 
   const {plantname, plantphoto, species, description, userId} = request.body
@@ -52,10 +59,14 @@ export const add_plant = functions.https.onRequest(async (request, response) => 
   }
 });
 
-// READ
+//---------------------------------------------
+//---------------READ FUNCTIONS----------------
+//---------------------------------------------
+
+// STATUS: MAYBE FUNCTIONAL? NEEDS TESTING
 export const search_users_or_plants = functions.https.onRequest(async (request, response) => {
   
-  const query = request.query?.toString()
+  const {query} = request.body
 
   if(!query){
     response.status(400).json({message: 'Search query is empty'})
@@ -65,36 +76,43 @@ export const search_users_or_plants = functions.https.onRequest(async (request, 
   try {
 
     const searchResult = await Promise.all([
-      db.collection('users').where('username', '==', query),
-      db.collection('plants').where('species', '==', query),
-      
+      db.collection('users').where('username', '==', query).get(),
+      db.collection('plants').where('species', '==', query).get(),
     ])
 
-    const usersQuery = searchResult[0].get()
-    const plantspeciesQuery = searchResult[1].get()
+    const usersQuery = searchResult[0].docs.map((doc) => doc.data())
+    const plantspeciesQuery = searchResult[1].docs.map((doc) => doc.data())
     
-    //const test = (await usersQuery).forEach(doc => )
-
-
-
     response.json({usersQuery, plantspeciesQuery})
   }
   catch(error) {
-
+    response.status(500).json({message: "Error querying for users or plant species", error})
   }
 
 });
 
-// UPDATE
+
+
+//---------------------------------------------
+//-------------UPDATE FUNCTIONS----------------
+//---------------------------------------------
+
+// STATUS: NO WORK, NEEDS START
+// export const edit_user = functions.https.onRequest(async (request, response) => {
+
+// });
+
+
+// STATUS: NO WORK, NEEDS START
 // export const edit_plant = functions.https.onRequest(async (request, response) => {
 
 // });
 
-// export const edit_plant = functions.https.onRequest(async (request, response) => {
+//---------------------------------------------
+//-------------DELETE FUNCTIONS----------------
+//---------------------------------------------
 
-// });
-
-// // DELETE
+// STATUS: HAS WORK, NEEDS MORE WORK
 export const del_plant = functions.https.onRequest(async (request, response) => {
   
   const {plantId} = request.body
