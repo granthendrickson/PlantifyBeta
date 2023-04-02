@@ -1,8 +1,9 @@
 import './App.css';
 import Navbar from './Components/Navbar';
 import Home from './pages/home';
-import Login from './pages/login';
+import Login from './pages/login.js';
 import Register from './pages/register';
+import AuthDetails from './pages/authDetails';
 import PlantBase from './pages/plantbase';
 import AddPlant from './pages/addPlant.js';
 import Plant from './pages/plant.js';
@@ -22,6 +23,7 @@ function App() {
           <Route path='pages/plantbase.js' element={ <PlantBase /> }/>
           <Route path='pages/login.js' element={ <Login /> }/>
           <Route path='pages/register.js' element={ <Register /> }/>
+          <Route path='pages/authDetails.js' element={ <AuthDetails /> }/>
           <Route path='pages/addPlant.js' element={ <AddPlant /> }/>
           <Route path='pages/plant.js' element={ <Plant /> }/>
         </Routes>
