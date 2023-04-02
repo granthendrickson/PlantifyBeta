@@ -3,7 +3,7 @@ import * as admin from 'firebase-admin'
 
 admin.initializeApp()
 const db = admin.firestore()
-const bucket = admin.storage().bucket()
+const bucket = admin.storage().bucket("gs://plantify-d36ed.appspot.com")
 
 // // Start writing functions
 // // https://firebase.google.com/docs/functions/typescript
@@ -120,9 +120,14 @@ export const del_plant = functions.https.onRequest(async (request, response) => 
   try {
 
     const plantRef = db.collection('plants').doc(plantId)
+    
+    
+    await plantRef.delete()
+    await bucket.deleteFiles()
 
+    response.json({message: "Successfully deleted"})
   }
   catch(error) {
-
+    response.json({message: "Could not delete", error})
   }
 });
