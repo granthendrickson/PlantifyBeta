@@ -76,6 +76,88 @@
   transform: scaleX(-1) rotate(-30deg);
 }
 
+/* ========================================== ABOUT PAGE CSS ==========================================*/
+
+.about-layout
+{
+  display: flex;
+  flex: 2 1;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  height: auto;
+  justify-content: left;
+}
+
+.half-Monstera
+{
+  width: fit-content;
+  padding: 0;
+  position: relative;
+  margin-top: 0;
+  margin-right: -200px;
+}
+
+.about-container
+{
+  display: flex;
+  flex-direction: column;
+  position: inherit;
+  top: 0;
+  left: -25rem;
+  margin: auto;
+  justify-content: center;
+}
+
+.about-item
+{
+  margin: 5rem;
+  text-align: center;
+}
+
+.about-header
+{
+  font-style: 'Kabel-Black';
+  font-weight: bolder;
+  font-size: 3.5rem;
+  padding-bottom: 1rem;
+  color: #385250;
+  text-align: left;
+}
+
+.about-paragraph
+{
+  font-style: 'Josefin Sans';
+  font-weight: 600;
+  font-size: 2rem;
+  text-align: left;
+  color: #385250;
+}
+
+.care
+{
+  margin-top: 10%;
+  margin-left: 40%;
+  box-shadow: 5px 5px 10px grey;
+}
+
+.share
+{
+  width: 90%;
+  height: auto;
+  margin-top: 10%;
+  margin-right: 0;
+  box-shadow: 5px 5px 10px grey;
+}
+
+.build-text
+{
+  margin-top: 10%;
+  margin-left: 30%;
+}
+
+/* ========================================================================================= */
+
 .login-page {
   text-align: center;
   height: 200vh;
